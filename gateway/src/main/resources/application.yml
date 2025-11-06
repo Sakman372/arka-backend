@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: gateway
   cloud:
     gateway:
       routes:
@@ -9,11 +11,14 @@ spring:
           uri: lb://inventory-service
           predicates:
             - Path=/api/products/**
-
         - id: orders
           uri: lb://order-service
           predicates:
             - Path=/api/orders/**
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 
 eureka:
   client:
