@@ -1,9 +1,9 @@
-target/
+# Node modules
+node_modules/
+
+# Logs
+logs/
 *.log
-*.tmp
-*.class
-.idea/
-.vscode/
-*.iml
-docker-compose.override.yml
-.DS_Store
+
+# Environment variables
+.env
