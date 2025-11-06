@@ -22,3 +22,35 @@ services:
     image: mongo:6
     ports:
       - "27017:27017"
+
+  eureka:
+    build: ./eureka-server
+    ports:
+      - "8761:8761"
+    depends_on:
+      - postgres-inventory
+      - postgres-order
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka
+
+  inventory:
+    build: ./inventory-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres-inventory
+      - eureka
+
+  order:
+    build: ./order-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - postgres-order
+      - inventory
+      - eureka

@@ -1,16 +1,8 @@
 # ARKA Backend - Microservices (Spring Boot)
 
-Proyecto microservicios para ARKA (distribuidora de accesorios para PC).
+Estructura generada automáticamente. Servicios incluidos: eureka-server, gateway, inventory-service, order-service, auth-service, notification-service, catalog-bff-web, catalog-bff-mobile, review-service.
 
-Servicios incluidos:
-- eureka-server (Service Discovery)
-- gateway (Spring Cloud Gateway)
-- inventory-service (Productos, stock, historial)
-- order-service (Órdenes, saga orquestada simple)
-- auth-service (JWT básico)
-- notification-service (SES/SNS placeholders)
-- catalog-bff-web, catalog-bff-mobile (BFF skeleton)
-- review-service (MongoDB)
-- docker-compose para desarrollo local
-- terraform/ (skeleton para AWS infra)
-- .github/workflows (CI skeleton)
+Local quick start:
+1. Java 17, Maven, Docker y Docker Compose instalados.
+2. Build artifacts (mvn -f <module> package) o usar imágenes locales.
+3. docker-compose up --build

@@ -1,4 +1,4 @@
-# Terraform skeleton - completa variables y módulos según tu VPC
+# Terraform skeleton - Revisa y personaliza antes de aplicar
 terraform {
   required_providers {
     aws = {
@@ -7,8 +7,14 @@ terraform {
     }
   }
 }
-
 provider "aws" {
   region = var.aws_region
 }
-# Añade recursos: RDS, ECR, ECS, SQS, SNS, S3, Lambda...
+resource "random_id" "bucket_suffix" {
+  byte_length = 4
+}
+resource "aws_s3_bucket" "arka_reports" {
+  bucket = "${var.prefix}-arka-reports-${random_id.bucket_suffix.hex}"
+  acl    = "private"
+}
+# Añade módulos: RDS, ECR, ECS, SQS, SNS, Lambda, IAM...

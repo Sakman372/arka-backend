@@ -1,6 +1,5 @@
 server:
   port: 8081
-
 spring:
   datasource:
     url: jdbc:postgresql://postgres-inventory:5432/inventorydb
@@ -10,7 +9,6 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-
 eureka:
   client:
     service-url:
